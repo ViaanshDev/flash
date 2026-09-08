@@ -8,14 +8,15 @@ if (empty($album) || $album === '.' || $album === '..' || !is_dir($portfolioDir)
   exit;
 }
 
-$pageTitle = htmlspecialchars($album) . ' — Flash Studio | Wedding Photography & Films';
+$displayAlbum = preg_replace('/([a-z])and([A-Z])/', '$1 and $2', $album);
+$pageTitle = htmlspecialchars($displayAlbum) . ' — Flash Studio | Wedding Photography & Films';
 include 'header.php';
 ?>
 
 <?php
 
-$headerTitle = $album;
-$breadcrumbActive = 'Portfolio / ' . $album;
+$headerTitle = htmlspecialchars($displayAlbum);
+$breadcrumbActive = 'Portfolio / ' . htmlspecialchars($displayAlbum);
 include 'page-header.php';
 ?>
 
@@ -47,7 +48,7 @@ include 'page-header.php';
         ?>
         <div class="masonry-item">
           <img src="<?= htmlspecialchars($encodedImgPath) ?>"
-            alt="<?= htmlspecialchars($album) ?> photography by Flash Studio" loading="lazy">
+            alt="<?= htmlspecialchars($displayAlbum) ?> photography by Flash Studio" loading="lazy">
         </div>
         <?php
       }

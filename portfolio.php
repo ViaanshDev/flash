@@ -48,6 +48,7 @@ include 'page-header.php';
           if ($coverImage) {
             $urlFolder = urlencode($folder);
             $formattedCount = str_pad($count, 2, '0', STR_PAD_LEFT);
+            $displayFolder = preg_replace('/([a-z])and([A-Z])/', '$1 and $2', $folder);
             ?>
             <?php
             $encodedCoverImage = implode('/', array_map('rawurlencode', explode('/', $coverImage)));
@@ -56,7 +57,7 @@ include 'page-header.php';
               <div class="portfolio-item">
                 <a href="portfolio-detail.php?album=<?= $urlFolder ?>"
                   class="portfolio-image-link d-block overflow-hidden mb-3">
-                  <img src="<?= htmlspecialchars($encodedCoverImage) ?>" alt="<?= htmlspecialchars($folder) ?>"
+                  <img src="<?= htmlspecialchars($encodedCoverImage) ?>" alt="<?= htmlspecialchars($displayFolder) ?>"
                     class="portfolio-cover-img" loading="lazy">
                 </a>
                 <div class="portfolio-content d-flex justify-content-between align-items-center mt-3">
@@ -66,7 +67,7 @@ include 'page-header.php';
                       <?= $formattedCount ?> / PORTFOLIO
                     </div>
                     <h3 class="portfolio-title serif mb-0" style="font-size: 1.8rem; color: var(--ink);">
-                      <?= htmlspecialchars($folder) ?>
+                      <?= htmlspecialchars($displayFolder) ?>
                     </h3>
                   </div>
                   <a href="portfolio-detail.php?album=<?= $urlFolder ?>"
