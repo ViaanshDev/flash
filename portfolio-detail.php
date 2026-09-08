@@ -43,10 +43,11 @@ include 'page-header.php';
     if (count($validImages) > 0) {
       foreach ($validImages as $img) {
         $imgPath = $portfolioDir . '/' . $img;
+        $encodedImgPath = implode('/', array_map('rawurlencode', explode('/', $imgPath)));
         ?>
         <div class="masonry-item">
-          <img src="<?= htmlspecialchars($imgPath) ?>" alt="<?= htmlspecialchars($album) ?> photography by Flash Studio"
-            loading="lazy">
+          <img src="<?= htmlspecialchars($encodedImgPath) ?>"
+            alt="<?= htmlspecialchars($album) ?> photography by Flash Studio" loading="lazy">
         </div>
         <?php
       }

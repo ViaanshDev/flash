@@ -42,7 +42,7 @@ include 'page-header.php';
 
   <div class="row g-3 gallery-row mt-4 justify-content-center">
     <div class="col-12 col-md-4">
-      <img src="images/portfolio1.jpg" alt="Collage Image 1" style="height: 650px; object-fit: cover; width: 100%;">
+      <img src="images/portfolio1.JPG" alt="Collage Image 1" style="height: 650px; object-fit: cover; width: 100%;">
     </div>
     <div class="col-12 col-md-4">
       <img src="images/portfolio2.JPG" alt="Collage Image 2" style="height: 650px; object-fit: cover; width: 100%;">

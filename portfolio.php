@@ -49,11 +49,13 @@ include 'page-header.php';
             $urlFolder = urlencode($folder);
             $formattedCount = str_pad($count, 2, '0', STR_PAD_LEFT);
             ?>
-            <div class="col-md-6 mb-5 pb-3">
+              <?php
+              $encodedCoverImage = implode('/', array_map('rawurlencode', explode('/', $coverImage)));
+              ?>
               <div class="portfolio-item">
                 <a href="portfolio-detail.php?album=<?= $urlFolder ?>"
                   class="portfolio-image-link d-block overflow-hidden mb-3">
-                  <img src="<?= htmlspecialchars($coverImage) ?>" alt="<?= htmlspecialchars($folder) ?>"
+                  <img src="<?= htmlspecialchars($encodedCoverImage) ?>" alt="<?= htmlspecialchars($folder) ?>"
                     class="portfolio-cover-img" loading="lazy">
                 </a>
                 <div class="portfolio-content d-flex justify-content-between align-items-center mt-3">
