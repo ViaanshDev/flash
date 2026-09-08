@@ -90,6 +90,7 @@
     .brand-center {
         position: absolute;
         left: 50%;
+        top: 1.1rem;
         transform: translateX(-50%);
         text-align: center;
         line-height: 1.1;
@@ -1412,5 +1413,41 @@
 
         .service-row {
             margin-bottom: 4rem;
+        }
+    }
+
+    /* ---------- FLOATING WHATSAPP ---------- */
+    .floating-whatsapp {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 60px;
+        height: 60px;
+        background-color: #25d366;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .floating-whatsapp:hover {
+        background-color: #128C7E;
+        color: white;
+        transform: scale(1.1);
+    }
+    
+    @media (max-width: 768px) {
+        .floating-whatsapp {
+            width: 50px;
+            height: 50px;
+            font-size: 1.8rem;
+            bottom: 1.5rem;
+            right: 1.5rem;
         }
     }

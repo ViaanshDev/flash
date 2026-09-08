@@ -25,12 +25,12 @@
       </button>
 
       <div class="d-none d-lg-flex flex-grow-1 justify-content-start">
-        <a class="nav-link <?= ($currentPage == 'index.php') ? 'active' : '' ?>" href="index.php#home">Home</a>
+        <a class="nav-link <?= ($currentPage == 'index.php') ? 'active' : '' ?>" href="index.php">Home</a>
         <a class="nav-link <?= ($currentPage == 'about.php') ? 'active' : '' ?>" href="about.php">About Us</a>
         <a class="nav-link <?= ($currentPage == 'services.php') ? 'active' : '' ?>" href="services.php">Services</a>
       </div>
 
-      <a class="brand-center mx-auto" href="index.php#home">
+      <a class="brand-center mx-auto" href="index.php">
         <span class="brand-name"><img src="images/logo.png" alt="" width="auto" height="40px"></span>
       </a>
 
