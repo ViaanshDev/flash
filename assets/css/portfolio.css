@@ -1,0 +1,155 @@
+/* portfolio.css */
+
+/* Portfolio List Page */
+.portfolio-cover-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+    filter: saturate(0.92);
+}
+.portfolio-image-link:hover .portfolio-cover-img {
+    transform: scale(1.04);
+}
+
+.portfolio-arrow-btn {
+    width: 55px; 
+    height: 55px; 
+    border-radius: 50%;
+    border: 1px solid var(--ink); 
+    color: var(--ink); 
+    text-decoration: none; 
+    transition: all 0.4s ease; 
+    font-size: 1.2rem;
+}
+
+.portfolio-arrow-btn:hover {
+    background-color: var(--ink);
+    color: var(--cream);
+    transform: translateX(5px);
+}
+
+/* Portfolio Detail Masonry Gallery */
+.portfolio-masonry {
+    column-count: 1;
+    column-gap: 1.5rem;
+    margin-top: 3rem;
+    padding-bottom: 5rem;
+}
+
+@media (min-width: 576px) {
+    .portfolio-masonry { column-count: 2; }
+}
+
+@media (min-width: 992px) {
+    .portfolio-masonry { column-count: 3; }
+}
+
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.masonry-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.masonry-item:hover img {
+    transform: scale(1.02);
+    filter: brightness(0.9);
+}
+
+/* Lightbox Styling */
+.portfolio-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 15, 15, 0.98);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-img-wrapper {
+    position: relative;
+    max-width: 90vw;
+    max-height: 85vh;
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    user-select: none;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 300;
+    cursor: pointer;
+    z-index: 10000;
+    background: none;
+    border: none;
+    padding: 10px;
+    line-height: 1;
+}
+
+.lightbox-prev, .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 20px;
+    z-index: 10000;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-prev:hover, .lightbox-next:hover, .lightbox-close:hover {
+    opacity: 0.7;
+}
+
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
+@media (max-width: 768px) {
+    .lightbox-prev { left: 5px; padding: 10px; font-size: 1.5rem; }
+    .lightbox-next { right: 5px; padding: 10px; font-size: 1.5rem; }
+    .lightbox-close { top: 10px; right: 10px; font-size: 2rem; }
+}
+
+.lightbox-counter {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
