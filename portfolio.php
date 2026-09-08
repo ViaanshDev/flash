@@ -49,9 +49,10 @@ include 'page-header.php';
             $urlFolder = urlencode($folder);
             $formattedCount = str_pad($count, 2, '0', STR_PAD_LEFT);
             ?>
-              <?php
-              $encodedCoverImage = implode('/', array_map('rawurlencode', explode('/', $coverImage)));
-              ?>
+            <?php
+            $encodedCoverImage = implode('/', array_map('rawurlencode', explode('/', $coverImage)));
+            ?>
+            <div class="col-md-6 mb-5 pb-3">
               <div class="portfolio-item">
                 <a href="portfolio-detail.php?album=<?= $urlFolder ?>"
                   class="portfolio-image-link d-block overflow-hidden mb-3">
@@ -62,9 +63,11 @@ include 'page-header.php';
                   <div class="portfolio-text text-start">
                     <div class="portfolio-number mb-1"
                       style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: var(--ink); opacity: 0.7;">
-                      <?= $formattedCount ?> / PORTFOLIO</div>
+                      <?= $formattedCount ?> / PORTFOLIO
+                    </div>
                     <h3 class="portfolio-title serif mb-0" style="font-size: 1.8rem; color: var(--ink);">
-                      <?= htmlspecialchars($folder) ?></h3>
+                      <?= htmlspecialchars($folder) ?>
+                    </h3>
                   </div>
                   <a href="portfolio-detail.php?album=<?= $urlFolder ?>"
                     class="portfolio-arrow-btn d-flex justify-content-center align-items-center">
