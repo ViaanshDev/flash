@@ -1,0 +1,39 @@
+name: 🚀 Auto Deploy Laravel
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: 🚀 Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: 65002
+          script: |
+            set -e
+
+            cd /home/u280075249/domains/flashstudio.co.in/public_html/ || exit
+
+            if [ ! -d ".git" ]; then
+                echo "📦 Initializing git repository"
+                git init
+                git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+            else
+                echo "📦 Updating remote URL"
+                git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+            fi
+
+            echo "📥 Pulling latest code"
+            git fetch origin main
+            git reset --hard origin/main
+
+            echo "✅ Deployment done"
